@@ -134,4 +134,9 @@ class FixedWidthParser implements FileParser {
 			}
 		}
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%s[pad=%s, widths=%s]", getClass().getSimpleName(), pad, Arrays.toString(widths));
+	}
 }

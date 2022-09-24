@@ -9,6 +9,8 @@ import java.util.stream.Stream;
 
 class DelimitedParser implements FileParser {
 
+	private final char delim;
+
 	// splits lines into tokens
 	private final Pattern splitter;
 
@@ -16,6 +18,8 @@ class DelimitedParser implements FileParser {
 
 		if (delim == '\r' || delim == '\n')
 			throw new IllegalArgumentException("delimiter cannot be CR or LF");
+
+		this.delim = delim;
 
 		this.splitter = Pattern.compile(Pattern.quote(String.valueOf(delim)));
 	}
@@ -32,4 +36,8 @@ class DelimitedParser implements FileParser {
 		});
 	}
 
+	@Override
+	public String toString() {
+		return String.format("%s[delim=%s]", getClass().getSimpleName(), delim);
+	}
 }
