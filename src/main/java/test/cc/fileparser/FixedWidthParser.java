@@ -31,7 +31,7 @@ class FixedWidthParser implements FileParser {
 				throw new IllegalArgumentException("widths must be strictly positive");
 
 		this.pad = pad;
-		this.widths = widths;
+		this.widths = widths.clone();
 	}
 
 	@Override
